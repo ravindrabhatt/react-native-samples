@@ -3,47 +3,45 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const BoxScreen = () => {
     return (
-        <View style={styles.viewStyle}>
-            <Text style={styles.textOneStyle}>Child 1</Text>
-            <Text style={styles.textTwoStyle}>Child 2</Text>
-            <Text style={styles.textThreeStyle}>Child 3</Text>
+        <View >
+            <View style={styles.headerStyle}>
+                <Text>App</Text>
+            </View>
+            <View style={styles.viewStyle}>
+                <View style={styles.viewOneStyle}></View>
+                <View style={styles.viewTwoStyle}></View>
+                <View style={styles.viewThreeStyle}></View>
+            </View>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    viewStyle: {
+    headerStyle: {
         borderWidth: 3,
         borderColor: 'black',
-        // alignItems: 'center',
-        // justifyContent: 'space-around',
+        height: 40
+    },
+    viewStyle: {
         flexDirection: 'row',
-        height: 100
+        justifyContent: 'space-between',
     },
-    textOneStyle: {
-        borderWidth: 1,
-        borderColor: 'red',
-        top: 10
+    viewOneStyle: {
+        backgroundColor: 'red',
+        height: 100,
+        width: 100
     },
-    textTwoStyle: {
-        borderWidth: 1,
-        borderColor: 'red',
-        top: 10
+    viewTwoStyle: {
+        backgroundColor: 'green',
+        height: 100,
+        width: 100,
+        top: 100,
     },
-    textThreeStyle: {
-        borderWidth: 1,
-        borderColor: 'red',
-        // flex: 1,
-        alignSelf: 'flex-end',
-        ...StyleSheet.absoluteFillObject,
-
-        //same as below
-        // position: 'absolute',
-        // top: 0,
-        // bottom: 0,
-        // left: 0,
-        // right: 0
-    },
+    viewThreeStyle: {
+        backgroundColor: 'blue',
+        height: 100,
+        width: 100,
+    }
 });
 
 export default BoxScreen;
