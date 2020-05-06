@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar'
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
@@ -8,19 +8,27 @@ const SearchScreen = () => {
     const [term, setSearchTerm] = useState('');
     const [searchApi, results, errorMsg] = useResults();
 
+    console.log(results);
+    const filterResultsByPrice = (price) => {
+        return results.filter(result => {
+            return result.price === price;
+        });
+    }
+
     return (
-        <View>
+        <>
             <SearchBar 
                 input={term}
                 onInputChange={(inputValue) => setSearchTerm(inputValue)}
                 onInputSubmitted={() => searchApi(term)}
             />
             {errorMsg ? <Text style={styles.error}>There was some error. Please try after some time.</Text> : null}
-            <Text>We found {results.length} results</Text>
-            <ResultsList/>
-            <ResultsList/>
-            <ResultsList/>
-        </View>
+            <ScrollView>
+                <ResultsList results={filterResultsByPrice('$')} title="Cost Effective"/>
+                <ResultsList results={filterResultsByPrice('$$')} title="Bit Pricier"/>
+                <ResultsList results={filterResultsByPrice('$$$')} title="Big Spender"/>
+            </ScrollView>
+        </>
     )
 };
 

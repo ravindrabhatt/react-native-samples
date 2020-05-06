@@ -22,11 +22,12 @@ const SearchBar = ({input, onInputChange, onInputSubmitted}) => {
 const styles = StyleSheet.create({
     backgroundStyle: {
         backgroundColor: 'white',
-        borderRadius: 2,
+        borderRadius: 5,
         height: 50,
-        marginHorizontal: 5,
+        marginHorizontal: 15,
         flexDirection: "row",
-        marginTop: 15
+        marginTop: 10,
+        marginBottom: 10,
     },
     input: {
         flex: 1,
