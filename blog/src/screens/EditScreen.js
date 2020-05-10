@@ -9,42 +9,25 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Context as BlogContext } from "../contexts/BlogContext";
+import BlogPostForm from "../components/BlogPostForm";
 
 const EditScreen = ({ navigation }) => {
   const { state } = useContext(BlogContext);
-  const { addBlogPost } = useContext(BlogContext);
-  
+  const { editBlogPost } = useContext(BlogContext);
+
   const blogPost = state.find(
     (blogPost) => blogPost.id === navigation.getParam("id")
   );
 
-  const [title, setTitle] = useState(blogPost.title);
-  const [content, setContent] = useState(blogPost.content);
-
   return (
-    <View>
-      <Text style={styles.label}>Edit title:</Text>
-      <TextInput
-        ini
-        style={styles.input}
-        value={title}
-        onChangeText={(text) => setTitle(text)}
-      ></TextInput>
-      <Text style={styles.label}>Edit content:</Text>
-      <TextInput
-        style={styles.input}
-        value={content}
-        onChangeText={(text) => setContent(text)}
-      ></TextInput>
-      <Button
-        title="Update Blog Post"
-        onPress={() =>
-          addBlogPost(title, content, () => {
-            navigation.navigate("Index");
-          })
-        }
-      />
-    </View>
+    <BlogPostForm
+      initialValues={{ title: blogPost.title, content: blogPost.content }}
+      onSubmit={(title, content) => {
+        editBlogPost(navigation.getParam("id"), title, content, () =>
+        navigation.navigate('Show', { id: navigation.getParam("id") })
+        );
+      }}
+    />
   );
 };
 

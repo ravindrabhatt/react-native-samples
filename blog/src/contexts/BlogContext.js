@@ -31,16 +31,14 @@ const reducer = (state, action) => {
 const addBlogPost = (dispatch) => {
   return (title, content, callback) => {
     dispatch({ type: "add_blog", payload: { title, content } });
-    console.log("complete state update for add")
     callback();
   };
 };
 
 const editBlogPost = (dispatch) => {
-  return (id, title, content) => {
+  return (id, title, content, callback) => {
     dispatch({ type: "edit_blog", payload: { id, title, content } });
-    // callback();
-    console.log("complete state update for edit")
+    callback();
   };
 };
 

@@ -19,18 +19,22 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
         value={content}
         onChangeText={(text) => setContent(text)}
       ></TextInput>
-      <Button title="Save Blog Post" onPress={() => {
-          onSubmit(title, content)}} />
+      <Button
+        title="Save Blog Post"
+        onPress={() => {
+          onSubmit(title, content);
+        }}
+      />
     </View>
   );
 };
 
-BlogPostForm.defaultProps={
-    initialValues: {
-        title: '',
-        content: ''
-    }
-}
+BlogPostForm.defaultProps = {
+  initialValues: {
+    title: "",
+    content: "",
+  },
+};
 
 const styles = StyleSheet.create({
   label: {
