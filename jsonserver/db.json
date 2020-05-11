@@ -6,9 +6,9 @@
       "content": "first content"
     },
     {
-      "id": 2,
-      "title": "second blog",
-      "content": "second content"
+      "title": "second blog-edited",
+      "content": "second content",
+      "id": 2
     },
     {
       "title": "Title three-edited",
