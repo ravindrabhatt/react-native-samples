@@ -11,14 +11,9 @@
       "content": "second content"
     },
     {
-      "title": "Title three",
+      "title": "Title three-edited",
       "content": "Content three",
       "id": 3
-    },
-    {
-      "title": "TItle four",
-      "content": "Content four",
-      "id": 4
     }
   ]
 }
